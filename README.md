@@ -20,7 +20,7 @@ and the `easefilter` crate provides a higher level interface.
 
 > [!NOTE]
 > A **license key is required** to use this program. Contact
-> [info@easefilter.com](mailto:info@easefilter.com) for a trial key.
+> EaseFilter support by e-mail for a trial key.
 
 If you run `cargo check` or `cargo clippy`, always run them specifically with
 `-p easefilter`, to avoid recompiling `easefilter-sys`.
