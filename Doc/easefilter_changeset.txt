@@ -1,0 +1,380 @@
+1.0 released (2012-03-18) 
+2.0    (2012-03-18) 
+	1.Added a GetFileHandle method.
+	2.Enabled WPP trace and fixed GetFileHandle (read/write corrected to generic read-write). 
+	3.Fixed FilterApi failing to set the registry key if the timestamp registry did not exist.
+	4.Fixed connection timeout issues and added support for reparse file open using tag data.
+	5.Fixed a bug where restoring a file that was recreated as a stub caused read failures.
+3.0     (2012-06-19) 
+	1.Fixed a BSOD when performing PostRead without MDL and data access (e.g., Firefox saving an image to a managed folder).
+	2.Fixed an issue where new file information was not updated in the stream context after renaming and updating the file.
+	3.Fixed ALLOW_QUERY_INFORMATION_ACCESS not being controlled for network I/O queries.
+	4.Fixed post-read return error: the return length now correctly matches the read length.
+	5.Fixed a BSOD when updating stream context file names.
+	6.Fixed a BSOD in control filter pre-read MDL operations.
+	7.Fixed buffer truncation issue in pre_set_security.
+	8.Fixed rename requests not including the original file name.
+	9.Fixed a bug with directory rename followed by file rename.
+	10.Fixed shadow volume snapshot warning bug.
+	11.Fixed a BSOD occurring during driver unload.
+3.07.1  (2012-08-18) 
+	1.Fixed an issue where the control filter did not update the new file name after it was changed.
+	2.Fixed a bug where the original file name could not be retrieved in POST_SET_INFORMATION for rename requests when PRE_SET_INFORMATION was registered.
+3.0.7.2 (2012-11-11) 
+	1.Added support to monitor rename requests from non-monitored folders to monitored folders.
+3.0.7.3 (2013-03-13) 
+	1.Fixed renaming a file from a non-monitored folder to a monitored folder when the file already exists; now correctly returns STATUS_OBJECT_NAME_COLLISION.
+3.0.7.4 (2013-08-18) 
+	1.Fixed an issue where renaming a file with an error return did not copy the destination file name.
+	2.Updated the InstallDriver API to disable the pop-up DOS window.
+3.1.0.2 (2013-11-23) 
+    	1.Added support for the FAT file system.
+	2.Fixed a BSOD that occurred when browsing a folder with all files hidden.
+	3.Fixed a delay issue in GetFileHandleInFilter.
+3.1.0.4 (2014-02-22) 
+	1.Disabled debug print messages in the release version.
+	2.Enabled Windows Software Trace Preprocessor (WPP) messages.
+4.0.1.0 (2014-05-05) 
+	1.Added Encryption Filter Driver product.
+4.0.1.1 (2014-07-11) 
+	1.Changed file name maximum length to 1024 characters.
+	2.Added API to support prevent filter driver from being unloaded.
+4.0.2.2 (2014-09-09) 
+	1.Added support to exclude specific folders in filter rules.
+	2.Fixed an issue where GetFileHandleInFilter opened files twice.
+4.0.3.1 (2015-03-13)    
+   	1.Added an API to prevent processes from being terminated.
+4.0.5.1 (2015-11-11)    
+   	1.Added support for multiple exclude file filter masks within the same include filter mask.
+	2.Added a new access flag to block file access from network servers.
+4.0.6.1 (2014-06-06) 
+	1.Prevented files from being opened bypassing the filter driver using the reparse point option.
+	2.Prevented deletion of the IV tag in encrypted files.
+4.0.6.3 (2014-08-08) 
+    	1.Updated the license management system.
+	2.Fixed an error message that occurred during installation.
+4.1.2.2 (2015-03-03) 
+    	1.Added per-filter rule support to include and exclude specific process IDs.
+	2.Added per-filter rule support for hidden file filter masks.
+	3.Added support for filter rules with subfolder filter masks under a parent folder that has a separate filter rule.
+4.2.1.1 (2015-06-13) 
+    	1.Added per-filter rule support to include and exclude specific process names.
+	2.Added per-filter rule support to include and exclude specific user names.
+	3.Added a new access flag to block "Save As," preventing files from being copied or pasted.
+	4.Added a layered filter driver with a shadow file object feature to the encryption filter driver, supporting private cache for every file open.
+	5.Added new APIs to embed access control policies into encrypted files for secure distribution.
+4.2.2.3 (2016-03-20) 
+	1.Fixed an issue where file rename events were not sent.
+	2.Fixed a problem with copying directories under encryption filter rules.	
+4.2.4.2 (2016-10-24) 
+	1.Passed Microsoft Filter Driver certification for Windows 10 Anniversary Edition and Windows Server 2016.
+	2.Added support for filtering files on network shares.
+	3.Added support for filtering files on CD-ROM drives.
+	4.Fixed a BSOD related to file renaming.
+4.2.5.1 (2016-11-08) 
+	1.Fixed a bug where protected process IDs were not functioning correctly. 	
+4.2.6.3 (2017-01-09) 
+	1.Added support for digital rights access control for encrypted files.
+	2.Added registration for read events.
+4.2.7.2 ( 2017-03-01)
+    	1.Fixed a bug where the filter did not control return I/O correctly.
+	2.Added support to monitor and control I/Os per filter rule simultaneously.
+	3.Return encrypted data instead of "access denied" when unauthorized processes attempt to read.
+4.2.8.3 ( 2017-03-27)
+    	1.Fixed a bug where post-cache-write notifications were not sent to user mode.
+	2.Fixed false remote access detection when opening files in MS Word 2016 on Windows 10.
+	3.Fixed an issue where file names were not updated correctly immediately after renaming.
+4.2.9.1 ( 2017-04-14)
+    	1.Fixed a BSOD that occurred when opening PDF files with POST_READ registered.
+	2.Added support for running the filter driver in Safe Mode.
+4.3.1.2 ( 2017-05-10)
+    	1.Fixed an issue where the monitor filter did not receive I/O notifications.
+	2.Fixed incorrect I/O description for rename operations.
+	3.Fixed a BSOD occurring during pre-create completion.
+4.3.2.1 ( 2017-05-18)
+    	1.Fixed an issue where removing the read access flag did not work for memory-mapped file opens.
+	2.Fixed an issue where read events were not generated for memory-mapped opens if the file was in memory cache.
+	3.Fixed an issue opening encrypted .xlsx files.
+4.3.3.1 ( 2017-06-15)
+    	1.Fixed an incorrect remote access message.
+	2.Fixed a BSOD that occurred when the reparse filter was enabled with an empty reparse mask.
+	3.Fixed an issue where hidden filters could not hide files when searching by file extension.
+4.3.5.5 ( 2017-10-26)
+	1.Fixed an issue where the encrypted file size was incorrect after truncation.
+	2.Fixed a BSOD caused by post-write callbacks without a valid buffer.
+	3.Fixed a BSOD occurring under Driver Verifier low resource settings.
+	4.Added a new flag to enable the "block Save As" feature.
+	5.Added support to enable/disable protection filter rules at boot time before the service starts.
+	6.Fixed an issue where some read events were not intercepted, e.g., with Notepad++.
+	7.Fixed a BSOD occurring when downloading files with Chrome.
+4.3.5.8 ( 2017-11-06)
+	1.Fixed an issue where no post-create event was triggered when the post-create operation failed.
+	2.Added callback notifications for fast I/O network information queries.
+	3.Handled issues in pre-cache-read caused by other filter drivers with incorrect read behavior.
+4.3.6.2 ( 2017-11-16)
+	1.Fixed an issue where the current byte offset was incorrect during encrypted file page writes.
+	2.Fixed an issue where the number of resident filter rules was not properly deleted.
+	3.Fixed issues with post read/write operations at DPC IRQL level.
+	4.Fixed a database decryption issue.
+	5.Added a pre_fastio_network_open callback.
+4.3.6.4 ( 2017-12-20 )
+	1.Fixed an issue where encrypted file offsets were incorrect on Windows XP.
+	2.Fixed BSOD issues caused by multiple resident filter rules.
+4.3.7.2 ( 2018-02-08 )
+	1.Added process rights to filter rules, including a new API: AddProcessRightsToFilterRule.
+	2.Added user rights to filter rules, including a new API: AddUserRightsToFilterRule.
+4.3.7.3 ( 2018-02-28 )
+	1.Updated RegisterMessageCallback to no longer require administrative privileges.	
+4.3.7.4 ( 2018-03-12 )
+	1.Fixed an encryption issue with overlapped data.
+	2.Fixed an encryption issue where the file size was not updated after setting the end-of-file pointer to 0.
+4.3.7.5 ( 2018-03-26 )
+	1.Fixed an issue where folders could not be opened due to reparse file filter rules.
+4.4.1.4 ( 2018-06-30 )   	
+	1.Supported read monitor notifications at IRQL > APC.
+	2.Supported MDL_READ notifications via UNC paths.
+	3.Added functionality to retrieve remote IP addresses (may not work reliably in all cases).
+	4.Fixed an issue with saving encrypted PowerPoint files via SMB.
+	5.Added the ALLOW_READ_ENCRYPTED_FILES flag to control which users or processes are authorized to read encrypted files.
+4.4.2.1 ( 2018-07-9 )   	
+	1.Added support for encryption on FAT volumes and network share folders.
+4.4.2.2 ( 2018-07-24 )   	
+	1.Fixed a bug in the Secure Share File Manager demo project.
+4.4.2.3 ( 2018-07-27 )   	
+	1.Applied access control flags to shared encrypted files.
+4.4.2.4 ( 2018-09-06 )   	
+	1.Added support for flags Flags_Request_IV_And_Key_From_User and Flags_Request_AccessFlags_From_User to retrieve IV, key, and access flags from user mode for encrypted files.
+	2.Fixed an issue with the access flag ALLOW_ENCRYPT_NEW_FILE.
+4.4.2.5 ( 2018-10-03 )   	
+	1.Removed the administrator requirement for the IsDriverServiceRunning API; non-admin users can now use it if the driver was installed by an admin.
+4.5.1.0 ( 2019-02-20 )   	
+	1.Added Registry Access Control Filter Driver SDK.
+4.5.2.0 ( 2019-04-24 )   	
+	1. Fixed shutdown BSOD issue for encryption filter driver with opened encryption file not close.
+4.5.3.1 ( 2019-05-09 )   	
+	1.Fixed a BSOD issue on Windows 8.1 when creating a virtual hard drive on a network share.
+4.5.4.1 ( 2019-06-12 )   	
+	1.Fixed a bug preventing Notepad from saving encrypted files.
+	2.Added support for registry callback control.
+	3.Added support to request the encryption key and IV from the user-mode service on a per-file basis.
+	4.Added a new API: AddProcessIdRightsToFilterRule.
+4.5.4.4 ( 2019-06-27 )   	
+	1.Fixed an issue retrieving IV and encryption keys per file from the service.
+4.5.4.5 ( 2019-07-11 )   	
+	1.Fixed an issue where the registry Post_Create_Key notification class was not called.
+4.5.4.6 ( 2019-07-17 )   	
+	1.Fixed an issue where the embedded access flag was not working for encrypted files.
+4.5.4.8 ( 2019-07-25 )   	
+	1.Fixed an issue where excluded user filter rules were not working.
+4.5.4.9 ( 2019-08-05 )   	
+	1.Enabled renaming of encrypted files within the same folder.	
+4.5.6.2 ( 2019-10-16 )   	
+	1.Fixed a BSOD that occurred when the service was stopped while opening an encrypted file.
+	2.Added a process filter driver.
+	3.Enabled support for wildcard process names.
+4.5.7.1 ( 2019-12-16 )   	
+	1.Added file access control filter rules based on process name or ID.
+4.5.7.2 ( 2019-12-27 )   	
+	1.Fixed an occasional BSOD issue during driver installation.
+4.5.8.2 ( 2020-01-07 )   	
+	1.Fixed an issue where data buffers could not be sent during cache read operations.
+4.5.9.4 ( 2020-02-24 )   	
+	1.Fixed a BSOD caused by enhanced security checks in Windows 10.
+	2.Fixed a bug where the POST_CLOSE event could not be tracked during real-time encryption.
+4.6.0.1 ( 2020-04-13 )   	
+	1.Fixed a BSOD caused by registry filter driver configuration reset.
+	2.Enabled the driver service to start without administrative privileges.
+	3.Added support for AES-NI hardware-accelerated encryption, improving performance by 3–4×.
+5.0.0.6 ( 2020-05-07 )   	
+	1.Added support for encryption using the header method.
+	2.Fixed an issue where UNC path file names were incorrect.
+	3.Added registry key name filter mask option.
+	4.Added support to open remote file paths in the GetFileHandleInFilter API.
+5.0.1.2 ( 2020-05-14)   	
+	1.Added filter rule ID to filters and enabled retrieval of the filter rule ID when I/O is registered.
+	2.Added support to register monitor and control I/O callbacks for process name–based filters.
+5.0.2.1 ( 2020-06-08)   	
+	1.Added callback I/O filter options for file open operations in file filter rules.
+	2.Added callback I/O filter options in process filter rules.
+5.0.2.8 ( 2020-06-18)   	
+	1.Fixed a BSOD issue in the process filter driver when processes were created and closed very frequently.
+	2.Fixed a BSOD issue in the registry filter driver when the service was stopped.
+5.0.3.2 ( 2020-06-26)   	
+	1.Improved process filter driver performance.
+	2.Added a new feature to support on-the-fly encryption, automatically encrypting files before they are sent out from your workplace.
+5.0.3.9 ( 2020-06-30)   	
+	1.Fixed an occasional BSOD issue when stopping the process filter driver service.
+5.0.4.0 ( 2020-07-14)   	
+	1.Added a process image name cache table in the filter driver to optimize process name access.
+5.0.5.1 ( 2020-09-07)   	
+	1.Added a feature to receive notifications when volumes are attached or detached.
+	2.Added a feature to prevent volumes from being formatted or dismounted.
+5.0.6.1 ( 2020-11-03)   	
+	1.Added support for new rename and delete event classes in Windows 10.
+	2.Added filter rule ID to every notification message.
+	3.Added buffer support for monitoring I/O events.
+5.0.6.4 ( 2020-11-09)
+	1.Added support to send denied events to the service when I/O is blocked by the control flag.
+5.0.6.5 ( 2020-11-30)
+	1.Added support to allow or deny file read operations from USB and file write operations to USB.
+5.0.6.6 ( 2020-12-13)
+	1.Fixed an issue where process ID-based access rights were not working.
+5.0.6.7 ( 2020-12-23)
+	1.Fixed a BSOD issue when transferring multiple blocks of read/write data to user mode.
+	2.Fixed an issue where the target file was empty after a rename operation.
+5.0.7.1 ( 2021-01-03)
+	1.Added new event types for register monitor and control I/O.
+5.0.8.1 ( 2021-02-13)
+	1.Fixed an issue where setting both user rights and process rights simultaneously did not work.
+5.0.8.2 ( 2021-02-16)
+	1.Fixed an issue where on-the-fly encryption prevented file renaming.
+5.0.9.1 ( 2021-02-23)
+	1.Fixed an issue where delete events could not be blocked on Windows 10.
+5.1.0.1 ( 2021-03-05)
+	1.Fixed an issue where rename events were not captured when moving files from outside the watch folder into it on Windows 10.
+5.1.1.1 ( 2021-06-03)
+	1.Added a new boolean configuration flag to block encrypted files from being renamed to a different folder.
+5.1.1.3 ( 2021-08-03)
+	1.Renamed API RegisterEventTypeToFilterRule to RegisterFileChangedEventsToFilterRule.
+5.1.2.2 ( 2021-10-09)
+	1.Added support for the OnProcessPreTermination callback.
+5.1.3.1 ( 2021-10-26)
+	1.Fixed an encryption error in Microsoft Office files.
+5.1.4.1 ( 2021-11-19)
+	1.Fixed an issue where new files created via right-click could not be encrypted in Windows 10.
+5.1.4.2 ( 2021-11-23)
+	1.Fixed a license check error.
+5.1.5.1 ( 2021-11-28)
+	1.Added support for retrieving the encryption key, IV, and tag data from the user-mode service.
+5.1.6.1 ( 2022-01-19)
+	1.Fixed an issue with blocked pre-write callback I/O.
+	2.Added support for different return statuses when requesting an encryption key from user mode.
+5.1.6.2 ( 2022-03-18)
+	1.Added support for retrieving the encryption key and tag data from the user-mode service.
+	2.Enabled authorization of encryption or decryption operations in the user-mode callback function.
+5.1.7.1 ( 2022-04-15)
+	1.Added support for trusted processes to control filter rules.
+	2.Fixed a performance issue causing slow service startup.
+5.1.7.2 ( 2022-04-24)
+	1.Enhanced driver connection security checks.
+5.1.8.1 ( 2022-05-02)
+	1.Fixed an issue where user access rights were not enforced correctly.
+5.1.9.1 ( 2022-07-05)
+	1.Prevented thread termination for protected processes.
+	2.Fixed an issue where REG_ALLOW_DELETE_VALUE_KEY was not working.
+5.1.9.2 ( 2022-07-13)
+	1.Prevented processes from being suspended.
+5.2.0.1 ( 2022-08-23)
+	1.Added support for Authenticode-based process access rights.
+5.2.1.3 ( 2022-09-01)
+	1.Fixed a volume mounting issue when the user-mode service was not started.
+5.2.2.1 ( 2022-10-18)
+	1.Fixed an encryption issue in version 5.2.1.3.
+5.2.3.1 ( 2022-11-07)
+	1.Allowed multiple registry filter rules with the same process name.
+	2.Added a new API: RemoveRegistryFilterRuleByRegKeyName.
+5.2.3.2 ( 2022-12-01)
+	1.Added support for file access rights in both file filter rules and process filter rules.
+5.2.4.1 ( 2023-01-30)
+	1.Fixed an issue with registry filter modification callbacks.
+	2.Fixed an offset/length issue when monitoring read or write operations over SMB.
+5.2.5.3 ( 2023-02-15)
+	1.Fixed a decryption issue for files larger than 4 GB.
+	2.Fixed an issue related to the send buffer.
+5.2.5.7 ( 2023-08-13)
+	1.Fixed an issue where rename events did not include the new file name.
+	2.Fixed a computer ID support issue for DRM encryption.
+5.2.6.1 ( 2023-09-01)
+	1.Fixed a process access rights compatibility issue for processes verified by both certificate and process name/ID.
+5.2.7.1 ( 2023-09-24)
+	1.Fixed slow performance when reading encrypted files over SMB shares.
+5.2.8.1 ( 2023-10-11)
+	1.Fixed an issue where protected processes could not spawn child processes.
+5.2.9.1 ( 2023-11-15)
+	1.Added IV data as the default encrypted file tag if it was not set.
+5.3.1.5 ( 2024-01-11)
+	1.Improved encryption performance for small buffer size writes.
+	2.Enhanced performance of control access rights checks based on user name.
+5.3.2.1 ( 2024-01-24)
+	1.Fixed a registry filter bug when the process name filter mask used the format "xxx".
+5.3.4.1 ( 2024-02-18)
+	1.Added support to detect FileCopy requests on Windows 11 22H2 or later.
+5.4.1.1 ( 2024-04-08)
+	1.Added encryption support for network shares.
+5.4.2.1 ( 2024-05-15)
+	1.Fixed an issue with key name filter masks in the registry filter driver.
+5.4.3.1 ( 2024-06-09)
+	1.Fixed a CD-ROM display issue when the filter driver service is disconnected.
+5.4.4.3 ( 2024-09-11)
+	1.Fixed a race condition issue during filter rule deletion.
+5.4.5.1 ( 2024-10-01)
+	1.Added support for excluding specific user names and process names in process filter rules.
+	2.Added support for excluding specific user names, process names, and key names in registry filter rules.
+5.4.6.2 ( 2024-11-19)
+	1.Fixed an issue where pre-I/O callbacks were not triggered if the I/O was blocked by a filter rule.
+5.5.1.1 ( 2024-11-27)
+	1.Synchronized encrypted cache write data across different processes when encryption is enabled.
+5.5.1.2 ( 2024-12-30)
+	1.Updated support for different license types.
+5.6.1.1 ( 2025-02-05)
+	1.Fixed trusted process rights by verifying certificates or SHA-256 hashes.
+	2.Fixed an issue with registry filter unload.
+	3.Enabled retrieval of the full file name for 8.3 short file names.
+5.6.1.3 ( 2025-02-20)        
+	1.Fixed a low memory resource exception issue.
+	2.Added a configuration flag to enable 8.3 short file name support.
+	3.Added caching for processes that are not signed with a certificate.
+5.6.2.1 ( 2025-02-26)        
+	1.Fixed a file deletion issue when encryption was enabled.
+5.6.3.3 ( 2025-03-31)        
+	1.Added FileId and VolumeId to the file callback data structure.
+	2.Fixed a registry filter issue.
+	3.Enabled user name and process name caching in the driver.
+5.6.3.5 ( 2025-04-15)        
+	1.Added PsSetLoadImageNotifyRoutine support in the process filter driver.
+5.6.5.1 ( 2025-05-02)        
+	1.Fixed an issue with DRM encryption tag data length.
+	2.Fixed a driver unload issue.
+5.6.6.1 ( 2025-05-20)        
+	1.Fixed an issue where cache read/write data buffers could not be sent to the user-mode service.
+	2.Fixed an issue where the DesiredAccess filter option was not working correctly.
+5.6.7.2 ( 2025-06-03)        
+	1.Optimized the driver unload procedure.
+5.6.8.3 ( 2025-07-01)        
+	1.Set a maximum communication buffer size for read/write I/O callback data.
+5.6.9.1 ( 2025-07-26)        
+	1.Fixed an issue where registry filter rules were being reset.
+	2.Added support for multiple filter masks with subset handling, prioritizing the smallest mask first.
+5.7.1.1 ( 2025-08-29)        
+	1.Optimized filter rule access locking.
+5.7.1.2 ( 2025-09-05)        
+	1.Fixed the license check issue for the development machine.
+5.8.1.6 ( 2025-10-16)        
+	1.Added a new stub file filter driver.
+5.8.2.2 ( 2025-11-11)        
+	1.Added a callback class for file memory mapping.
+	2.Fixed a user name filter rule related issue.
+	3.Fixed an issue where write I/O operations could have an invalid offset (-1).
+5.8.3.1 ( 2025-11-25)        
+	1.Fixed issue of the reparse status return from callback in Windows 11.
+5.8.4.1 ( 2025-12-18)        
+	1.Added support for Bypass I/O feature.
+	2.Fixed an issue where the Save As operation was not blocked.
+	3.Added support for blocking copy and paste operations.
+	4.Fixed an issue with editing virtual stub files via SMB shares. 
+5.8.4.3 ( 2025-12-31)        
+	1.Added support for returning AccessFlag from the encryption callback function.
+	2.Added support for file memory mapping with AcquireForSectionSynchronization structure data returned.
+5.8.4.5 ( 2026-01-06)        
+	1.Enabled Save As to a protected folder when Save As was blocked and Copy & Paste was enabled.
+5.8.5.1 ( 2026-02-25)        
+	1.Fixed the process filter and registry filter to correctly support multiple filter masks with subset entries.
+5.8.6.1 ( 2026-03-08)        
+	1.Support creating filter connection per worker thread.
+5.8.6.2 ( 2026-04-02)        
+	1.Optimized the user-mode message send and reply buffers for read/write callback operations.
+5.8.7.1 ( 2026-05-12)        
+	1.Enhance the license verification.
+5.8.7.3 ( 2026-07-12)        
+	1.Added support to block child process creation by a specified process.
+
