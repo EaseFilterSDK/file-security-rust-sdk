@@ -2,11 +2,6 @@
 
 <strong>Memory-Safe Windows File System Security, EDR, and DLP in Rust</strong>
 
-<img src="https://img.shields.io/badge/platform-Windows-blue.svg" alt="Platform Windows">
-<img src="https://img.shields.io/badge/language-Rust-orange.svg" alt="Rust">
-<img src="https://img.shields.io/badge/license-Commercial-green.svg" alt="License">
-<img src="https://img.shields.io/badge/version-SDK-red.svg" alt="SDK">
-
 [![Platform](https://img.shields.io/badge/Platform-Windows-blue.svg)]()
 [![Language](https://img.shields.io/badge/Language-Rust-success.svg)]()
 [![License](https://img.shields.io/badge/License-Commercial-orange.svg)]()
