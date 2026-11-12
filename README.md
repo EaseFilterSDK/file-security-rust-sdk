@@ -1,6 +1,40 @@
-# EaseFilter SDK Rust Demo
+# EaseFilter File Security Rust SDK
 
-Rust language demo crates for the [EaseFilter File Security SDK](https://easefilter.com).
+<p align="center">
+  <strong>Memory-Safe Windows File System Security, EDR, and DLP in Rust</strong>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/platform-Windows-blue.svg" alt="Platform Windows">
+  <img src="https://img.shields.io/badge/language-Rust-orange.svg" alt="Rust">
+  <img src="https://img.shields.io/badge/license-Commercial-green.svg" alt="License">
+  <img src="https://img.shields.io/badge/version-SDK-red.svg" alt="SDK">
+</p>
+
+---
+
+## Overview
+
+Interacting deeply with the Windows Kernel to build **Endpoint Detection and Response (EDR)** or **Data Loss Prevention (DLP)** agents traditionally requires writing risky, unsafe C/C++ mini-filter drivers. 
+
+The **EaseFilter File Security SDK** bridges this gap. By utilizing Rust's Foreign Function Interface (FFI) to wrap the EaseFilter API, developers can build blazingly fast, memory-safe security agents that natively intercept file system, registry, and process events without risking memory leaks or null-pointer dereferences in ring 0.
+
+<Image alt="EaseFilter System Architecture Diagram illustrating kernel and user mode communication" caption="EaseFilter File Security Architecture" src="https://www.easefilter.com/images/file-security-rust-architecture.jpg"/>
+
+---
+
+## Key Features
+
+- **Zero-Trust File Access & Ransomware Mitigation:** Strip dangerous permissions (write, delete, rename) dynamically from sensitive directories.
+- **Fearless Concurrency with MPSC Channels:** Route kernel I/O interception events safely into Rust Multi-Producer, Single-Consumer channels without blocking OS threads.
+- **Transparent File Encryption (DLP):** Enforce 256-bit AES encryption on disk while decrypting files in memory only for authorized, whitelisted processes.
+- **Process & Registry Auditing:** Monitor process creation trees and protect critical auto-run Windows registry hives from unauthorized tampering.
+
+---
+
+## How It Works
+
+Rust language demo crates for the [EaseFilter File Security SDK](https://www.easefilter.com/kb/file-security-sdk-developer-guide.htm).
 Includes the following features:
 
 * Monitoring of file/folder access
@@ -153,6 +187,17 @@ ess control with encryption feature. |
 * [Filter Driver Developer Guide](https://www.easefilter.com/kb/DeveloperGuide.htm)
 * [MiniFilter Filter Driver Framework](https://www.easefilter.com/kb/minifilter-framework.htm)
 * [Isolation Filter Driver](https://www.easefilter.com/kb/Isolation_Filter_Driver.htm)
+
+## License
+
+This repository contains two distinct licensing categories:
+
+1. **Wrapper/Implementation Code (MIT License):** 
+   The source code, scripts, and configuration files provided directly in this repository are licensed under the [MIT License](LICENSE). You are free to modify, distribute, and use this specific integration code.
+
+2. **EaseFilter SDK (Commercial License):**
+   This project requires the EaseFilter SDK (including its binaries, filter drivers, and core libraries) to function. The EaseFilter SDK is **proprietary commercial software** and is strictly excluded from the MIT License.   
+   To use the EaseFilter SDK for commercial purposes or in a production environment, you must obtain a valid commercial license directly from [EaseFilter](https://www.easefilter.com/license.pdf).
 
 ## Support
 If you have questions or need help, please contact support@easefilter.com 
