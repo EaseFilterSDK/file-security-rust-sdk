@@ -1,15 +1,11 @@
 # EaseFilter File Security Rust SDK
 
-<p align="center">
-  <strong>Memory-Safe Windows File System Security, EDR, and DLP in Rust</strong>
-</p>
+<strong>Memory-Safe Windows File System Security, EDR, and DLP in Rust</strong>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/platform-Windows-blue.svg" alt="Platform Windows">
-  <img src="https://img.shields.io/badge/language-Rust-orange.svg" alt="Rust">
-  <img src="https://img.shields.io/badge/license-Commercial-green.svg" alt="License">
-  <img src="https://img.shields.io/badge/version-SDK-red.svg" alt="SDK">
-</p>
+<img src="https://img.shields.io/badge/platform-Windows-blue.svg" alt="Platform Windows">
+<img src="https://img.shields.io/badge/language-Rust-orange.svg" alt="Rust">
+<img src="https://img.shields.io/badge/license-Commercial-green.svg" alt="License">
+<img src="https://img.shields.io/badge/version-SDK-red.svg" alt="SDK">
 
 ---
 
