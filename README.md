@@ -29,7 +29,7 @@ The **EaseFilter File Security SDK** bridges this gap. By utilizing Rust's Forei
 ## How It Works
 
 Rust language demo crates for the [EaseFilter File Security SDK](https://www.easefilter.com/kb/file-security-sdk-developer-guide.htm).
-Includes the following features:
+Includes the following modules:
 
 * Monitoring of file/folder access
 
